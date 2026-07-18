@@ -66,4 +66,45 @@ class EmojiMemoryGame:
             self.matches =0
             self.open_cards = []
 
-            emojis = difficulty_levels[self.difficulty]
+            emojis = difficulty_levels[self.difficulty.get()]
+
+            self.cards = emojis * 2
+            random.shuffle(self.cards)
+
+            self.info = tk.Label(
+                self.root,
+                font=("Arial", 15)
+            )
+            self.info.pack()
+
+            self.board = tk.Frame(self.root)
+            self.board.pack(pady=20)
+
+            self.buttons = []
+
+            columns = 4
+
+            for i, emoji in enumerate(self.cards):
+
+                button = tk.Button(
+                    self.board,
+                    text="❓",
+                    width=6,
+                    height=3
+                    font=("Ariel", 18),
+                    command=lambda i=i:self.flip(i)
+                )
+
+                button.grid(
+                    row=i//columns,
+                    columns=i%columns,
+                    padx=5,
+                    pady=5
+                )
+
+                self.buttons.append(button)
+            
+            self.message = tk.Label(
+                self.root,
+                font=("Ariel", 14)
+            )
