@@ -150,3 +150,6 @@ class EmojiMemoryGame:
                             self.message.config(text="❌ Try Again")
 
                         self.open cards=[]
+
+                        self.update_info()
+                        
