@@ -107,4 +107,37 @@ class EmojiMemoryGame:
             self.message = tk.Label(
                 self.root,
                 font=("Ariel", 14)
-            )
+            )   
+            self.message.pack()
+
+            self.update_info
+
+
+            def flip(self,index):
+
+                if len(self.open_cards)==2:
+                    return
+                
+                if self.buttons[index]["text"]!="❓":
+                    return
+                
+                self.buttons[index]["text"]=self.cards[index]
+
+                self.open_cards.append(index)
+
+                if len(self.open_cards)==2:
+                    self.moves+=1
+                    self.root.after(800,self.check)
+
+
+                    def check(self):
+
+                        a,b=self.open_cards
+
+                        if self.cards[a]==self.cards[b]:
+
+                            self.buttons[a]["state"]="disabled"
+                            self.buttons[b]["state"]="disabled"
+
+                            self.matches+=1
+                            self.message.config(text="🎊 Great Match!")
