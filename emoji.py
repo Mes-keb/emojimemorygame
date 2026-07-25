@@ -141,3 +141,12 @@ class EmojiMemoryGame:
 
                             self.matches+=1
                             self.message.config(text="🎊 Great Match!")
+
+                        else:
+
+                            self.buttons[a]["text"]="❓"
+                            self.buttons[b]["text"]="❓"
+
+                            self.message.config(text="❌ Try Again")
+
+                        self.open cards=[]
