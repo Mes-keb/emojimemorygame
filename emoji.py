@@ -169,4 +169,6 @@ class EmojiMemoryGame:
 
                                 root=tk.TK()
                                 game=EmojiMemoryGame(root)
+
+                                root.mainloop()
                                 
